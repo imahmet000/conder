@@ -535,6 +535,8 @@
     .nav-links{display:none;}
     .header-phone span,.header-social{display:none;}
     .burger{display:flex;}
+    .header-right{flex-wrap:wrap;justify-content:flex-end;gap:12px;}
+    .btn{min-width:0;}
     .hero{padding:32px 0 18px;}
     .hero-grid{gap:28px;}
     .feature-grid{grid-template-columns:1fr;}
@@ -555,7 +557,10 @@
   @media (max-width:580px){
     .container{padding:0 18px;}
     .nav-wrap{height:auto;gap:18px;padding:18px 0;}
-    .header-right{flex-wrap:wrap;justify-content:flex-end;}
+    .header-right{flex-wrap:wrap;justify-content:space-between;gap:12px;width:100%;}
+    .header-right .btn{flex:1 1 auto;min-width:0;}
+    .header-right .burger{flex:0 0 auto;}
+    .btn{padding:14px 22px;font-size:14px;white-space:normal;}
     .hero{padding:28px 0 16px;}
     .hero h1{font-size:28px;}
     .hero p.sub{font-size:15px;}
@@ -572,7 +577,8 @@
     .container{padding:0 14px;}
     .hero h1{font-size:26px;}
     .hero .note{font-size:14px;}
-    .btn{padding:12px 18px;font-size:14px;}
+    .btn{padding:12px 18px;font-size:14px;white-space:normal;}
+    .header-right{justify-content:flex-end;}
     .footer-grid{gap:24px;}
     .footer-col h4{margin-bottom:14px;}
   }
