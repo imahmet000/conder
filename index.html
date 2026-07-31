@@ -6,12 +6,10 @@
 <title>CLIMATE ASTANA — Обслуживание и продажа кондиционеров в Астане</title>
 <meta name="description" content="Заправка фреоном, ремонт, монтаж и продажа кондиционеров Midea, Samsung, LG в Астане. Мастер бесплатно приедет через 30-40 минут.">
 
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 
 <style>
   :root{
@@ -30,7 +28,6 @@
     --wa:#25D366;
   }
 
-
   *{margin:0;padding:0;box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
@@ -40,6 +37,10 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
+  body.no-scroll {
+    overflow: hidden; /* Блокировка скролла фона при открытом меню */
+  }
+
   h1,h2,h3,.display{
     font-family:'Unbounded',sans-serif;
     letter-spacing:-0.01em;
@@ -68,7 +69,6 @@
     border-radius:100px;
   }
   .eyebrow i{font-size:11px;}
-
 
   /* ============ BUTTONS ============ */
   .btn{
@@ -102,11 +102,12 @@
   .btn-sm{padding:11px 20px;font-size:14px;}
   .btn-block{width:100%;}
 
-
   /* ============ HEADER ============ */
   header{
-    position:sticky;top:0;z-index:1000;
-    background:rgba(255,255,255,.85);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.95);
     backdrop-filter:blur(14px);
     -webkit-backdrop-filter:blur(14px);
     border-bottom:1px solid var(--line);
@@ -162,33 +163,31 @@
     font-size:18px;color:var(--ink);
     cursor:pointer;
   }
-  header{
-    position:sticky;top:0;z-index:1000;
-    background:rgba(255,255,255,.85);
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--line);
-    overflow:visible;
-  }
+
+  /* ============ MOBILE MENU (ИСПРАВЛЕНО) ============ */
   .mobile-menu{
     display:none;
     position:fixed;
-    inset:78px 0 0 0;
+    top:78px;
+    left:0;
+    right:0;
+    bottom:0;
     width:100%;
-    background:#fff;z-index:1001;
-    padding:18px 20px 20px;
-    flex-direction:column;gap:8px;
+    height:calc(100vh - 78px);
+    background:#fff;
+    z-index:999;
+    padding:24px 20px 40px;
+    flex-direction:column;
+    gap:12px;
     overflow-y:auto;
-    box-shadow:0 24px 70px rgba(11,54,80,.14);
   }
   .mobile-menu.open{display:flex;}
   .mobile-menu a{
-    padding:16px 6px;font-size:17px;font-weight:700;
+    padding:16px 6px;font-size:18px;font-weight:700;
     border-bottom:1px solid var(--line);color:var(--ink);
   }
   .mobile-menu .header-phone{padding:16px 6px;font-size:19px;}
-  .mobile-menu .btn{margin-top:16px;}
-
+  .mobile-menu .btn{margin-top:20px;}
 
   /* ============ HERO ============ */
   .hero{
@@ -235,7 +234,6 @@
   @keyframes tick{0%,100%{transform:rotate(0)}50%{transform:rotate(18deg)}}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px;}
 
-
   .feature-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -257,7 +255,6 @@
     display:flex;align-items:center;justify-content:center;font-size:17px;
   }
   .feature-card b{display:block;font-size:14.5px;font-weight:700;line-height:1.3;}
-
 
   /* hero visual */
   .hero-visual{position:relative;display:flex;justify-content:center;align-items:center;}
@@ -286,7 +283,6 @@
   }
   @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(20px)}}
 
-
   .airflow{position:absolute;left:-40px;top:50%;transform:translateY(-50%);width:120px;height:200px;z-index:2;pointer-events:none;}
   .airflow path{
     fill:none;stroke:#fff;stroke-width:3;stroke-linecap:round;
@@ -297,7 +293,6 @@
   .airflow path:nth-child(2){animation-delay:.3s;opacity:.6;}
   .airflow path:nth-child(3){animation-delay:.6s;opacity:.4;}
   @keyframes flow{to{stroke-dashoffset:-48;}}
-
 
   .badge-timer{
     position:absolute;
@@ -323,7 +318,6 @@
   .badge-timer .txt b{display:block;font-size:19px;font-family:'Unbounded',sans-serif;line-height:1;}
   .badge-timer .txt span{font-size:12.5px;color:var(--ink-soft);font-weight:600;}
 
-
   .badge-brand{
     position:absolute;top:22px;right:-18px;
     background:#fff;border-radius:16px;
@@ -335,14 +329,12 @@
   }
   .badge-brand i{color:var(--blue);}
 
-
   /* ============ SECTION GENERIC ============ */
   section{padding:88px 0;}
   .section-head{text-align:center;max-width:620px;margin:0 auto 52px;}
   .section-head h2{font-size:clamp(26px,3.4vw,36px);margin:16px 0 12px;}
   .section-head p{color:var(--ink-soft);font-size:16px;line-height:1.6;}
   .bg-ice{background:var(--ice);}
-
 
   /* ============ SERVICES ============ */
   .services-grid{
@@ -383,7 +375,6 @@
   .service-card a.link i{transition:transform .2s ease;}
   .service-card a.link:hover i{transform:translateX(4px);}
 
-
   /* brands */
   .brands{
     margin-top:64px;
@@ -404,7 +395,6 @@
     transition:transform .25s ease, border-color .25s ease;
   }
   .brand-chip:hover{transform:translateY(-3px);border-color:var(--blue);}
-
 
   /* ============ QUESTION BLOCK ============ */
   .question{
@@ -461,7 +451,6 @@
   .question-form .btn-primary:hover{background:#f2fbff;}
   .question-form .hint{font-size:12.5px;opacity:.75;margin-top:10px;}
 
-
   /* ============ TRUST STRIP ============ */
   .trust{
     display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
@@ -470,7 +459,6 @@
   .trust-item{text-align:center;}
   .trust-item .n{font-family:'Unbounded',sans-serif;font-size:32px;color:var(--blue-deep);}
   .trust-item span{display:block;font-size:13.5px;color:var(--ink-soft);font-weight:600;margin-top:4px;}
-
 
   /* ============ FOOTER ============ */
   footer{background:var(--blue-dark);color:#fff;padding:64px 0 24px;}
@@ -496,7 +484,6 @@
     padding-top:24px;font-size:13px;opacity:.65;flex-wrap:wrap;gap:10px;
   }
 
-
   /* ============ FLOATING WHATSAPP ============ */
   .wa-float{
     position:fixed;bottom:26px;right:26px;z-index:1200;
@@ -518,7 +505,6 @@
     0%{transform:scale(1);opacity:.55;}
     100%{transform:scale(1.9);opacity:0;}
   }
-
 
   /* ============ RESPONSIVE ============ */
   @media (max-width:1000px){
@@ -597,12 +583,10 @@
     *{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important;}
   }
 
-
   :focus-visible{outline:3px solid var(--blue-deep);outline-offset:2px;}
 </style>
 </head>
 <body>
-
 
 <!-- ================= HEADER ================= -->
 <header>
@@ -612,14 +596,12 @@
       CLIMATE <span>ASTANA</span>
     </a>
 
-
     <nav class="nav-links">
       <a href="#services">Услуги</a>
       <a href="#brands">Бренды</a>
       <a href="#question">Вопрос мастеру</a>
       <a href="#contacts">Контакты</a>
     </nav>
-
 
     <div class="header-right">
       <a class="header-phone" href="tel:+77086351858">
@@ -633,18 +615,17 @@
       <button class="burger" id="burgerBtn" aria-label="Меню" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
     </div>
   </div>
-
-
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#services">Услуги</a>
-    <a href="#brands">Бренды</a>
-    <a href="#question">Вопрос мастеру</a>
-    <a href="#contacts">Контакты</a>
-    <a class="header-phone" href="tel:+77086351858"><i class="fa-solid fa-phone-volume"></i> +7 708 635 1858</a>
-    <a class="btn btn-primary btn-block wa-link" href="#" target="_blank" rel="noopener">Вызвать мастера в WhatsApp</a>
-  </div>
 </header>
 
+<!-- МОБИЛЬНОЕ МЕНЮ ВЫНЕСЕНО ИЗ HEADER -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services">Услуги</a>
+  <a href="#brands">Бренды</a>
+  <a href="#question">Вопрос мастеру</a>
+  <a href="#contacts">Контакты</a>
+  <a class="header-phone" href="tel:+77086351858"><i class="fa-solid fa-phone-volume"></i> +7 708 635 1858</a>
+  <a class="btn btn-primary btn-block wa-link" href="#" target="_blank" rel="noopener">Вызвать мастера в WhatsApp</a>
+</div>
 
 <!-- ================= HERO ================= -->
 <section class="hero" id="top">
@@ -655,12 +636,10 @@
       <p class="sub">Заправка фреоном, ремонт, монтаж и продажа кондиционеров Midea, Samsung, LG. Работаем по всему городу, выезжаем в день обращения.</p>
       <div class="note"><i class="fa-solid fa-stopwatch"></i> Позвоните — и мастер бесплатно приедет через 30–40 минут</div>
 
-
       <div class="hero-cta">
         <a href="#" class="btn btn-primary wa-link" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Вызвать мастера</a>
         <a href="#" class="btn btn-ghost wa-link" target="_blank" rel="noopener">Заказать консультацию</a>
       </div>
-
 
       <div class="feature-grid">
         <div class="feature-card"><span class="ic"><i class="fa-solid fa-magnifying-glass"></i></span><b>Бесплатная диагностика</b></div>
@@ -669,7 +648,6 @@
         <div class="feature-card"><span class="ic"><i class="fa-solid fa-bolt"></i></span><b>Любой ремонт за 1 день</b></div>
       </div>
     </div>
-
 
     <div class="hero-visual">
       <div class="glow-orb"></div>
@@ -690,7 +668,6 @@
   </div>
 </section>
 
-
 <!-- ================= SERVICES ================= -->
 <section id="services">
   <div class="container">
@@ -699,7 +676,6 @@
       <h2>Полный цикл работ с климатической техникой</h2>
       <p>От подбора модели до сервисного обслуживания — работаем со всеми типами кондиционеров.</p>
     </div>
-
 
     <div class="services-grid">
       <div class="service-card">
@@ -732,7 +708,6 @@
       </div>
     </div>
 
-
     <div class="brands" id="brands">
       <span class="label">Работаем с брендами:</span>
       <span class="brand-chip">Midea</span>
@@ -741,7 +716,6 @@
     </div>
   </div>
 </section>
-
 
 <!-- ================= QUESTION BLOCK ================= -->
 <section class="bg-ice" id="question">
@@ -760,7 +734,6 @@
       </div>
     </div>
 
-
     <div class="trust">
       <div class="trust-item"><div class="n">10+</div><span>лет на рынке</span></div>
       <div class="trust-item"><div class="n">5000+</div><span>довольных клиентов</span></div>
@@ -769,7 +742,6 @@
     </div>
   </div>
 </section>
-
 
 <!-- ================= FOOTER ================= -->
 <footer id="contacts">
@@ -814,49 +786,48 @@
   </div>
 </footer>
 
-
 <!-- ================= FLOATING WHATSAPP ================= -->
 <a href="#" class="wa-float wa-link" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 
-
 <script>
   const WA_NUMBER = "77086351858";
   const DEFAULT_MSG = "Здравствуйте! Хочу вызвать мастера по кондиционеру.";
 
-
   function buildWaLink(message){
     return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
   }
-
 
   // set default whatsapp links for all generic CTA buttons
   document.querySelectorAll('.wa-link').forEach(el=>{
     el.setAttribute('href', buildWaLink(DEFAULT_MSG));
   });
 
-
-  // burger menu
+  // burger menu implementation
   const burgerBtn = document.getElementById('burgerBtn');
   const mobileMenu = document.getElementById('mobileMenu');
+  
   if (burgerBtn && mobileMenu) {
     burgerBtn.addEventListener('click', ()=>{
       const isOpen = mobileMenu.classList.toggle('open');
+      document.body.classList.toggle('no-scroll', isOpen);
+      
       burgerBtn.innerHTML = isOpen
         ? '<i class="fa-solid fa-xmark"></i>'
         : '<i class="fa-solid fa-bars"></i>';
       burgerBtn.setAttribute('aria-expanded', isOpen);
     });
+
     mobileMenu.querySelectorAll('a').forEach(a=>{
       a.addEventListener('click', ()=>{
         mobileMenu.classList.remove('open');
+        document.body.classList.remove('no-scroll');
         burgerBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
         burgerBtn.setAttribute('aria-expanded', 'false');
       });
     });
   }
-
 
   // question form -> whatsapp with custom message
   const sendBtn = document.getElementById('sendQuestionBtn');
@@ -869,7 +840,6 @@
     window.open(buildWaLink(message), '_blank', 'noopener');
   });
 </script>
-
 
 </body>
 </html>
